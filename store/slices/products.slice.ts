@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-interface Product{
+export interface Product{
     id:number;
     name:string;
     qualification:number;

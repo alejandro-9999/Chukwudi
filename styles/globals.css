@@ -281,12 +281,27 @@
 .product-card-header{
     width: 260px;
     height: 130px;
-    @apply relative;
-}
-.product-card-image{
-  border-radius: 15px;
+    
   @apply relative;
 }
+
+.product-card-header article{
+  width: 100%;
+}
+
+.product-card-image{
+  border-radius: 15px;
+  
+  flex: 1;
+  max-width: 100%;
+  width: 260px;
+    height: 130px;
+  
+    object-fit: cover;
+    @apply absolute;
+}
+
+
 
 .product-card-time{
     height: 35px;

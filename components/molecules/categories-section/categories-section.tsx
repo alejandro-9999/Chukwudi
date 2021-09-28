@@ -30,15 +30,15 @@ export default function CategoriesSection() {
             </div>
             <div className="categories-slider">        
                 {
-                    categories.map(Element=>(
-                        <CategoryItem item = {Element}/>
+                    categories.map((Element,key)=>(
+                        <CategoryItem item = {Element} key={key}/>
                     ))
                 }
             </div>
             <div className="products-slider">
                 {
-                    products.map(Element=>(
-                        <ProductCard/>
+                    products.map((Element,key)=>(
+                        <ProductCard item={Element} key={key}/>
                     ))
                 }
             </div>
