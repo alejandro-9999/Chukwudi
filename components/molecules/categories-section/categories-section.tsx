@@ -1,11 +1,20 @@
 import Image from "next/image";
 import BurguerIcon from '../../../assets/icons/1046784.svg';
 import DropdownDelivery from "../../atoms/dropdown-delivery/dropdown-delivery";
-import Category from "../../atoms/category/category";
+import CategoryItem from "../../atoms/category-item/category-item";
 import ProductCard from "../../atoms/product-card/product-card";
+import { connect, useSelector } from "react-redux";
+import React from "react";
+import { ArrayTypeProduct,TypeProduct} from "../../../redux/types";
+import { getCategoriesSelector } from "../../../store/slices/categories.slice";
+import { getProductsSelector } from "../../../store/slices/products.slice";
 
 
 export default function CategoriesSection() {
+    
+    const categories =  useSelector(getCategoriesSelector);
+    const products = useSelector(getProductsSelector);
+    
     return (
         <div className="categories-section">
             <div className="title-categories-secion">
@@ -19,19 +28,20 @@ export default function CategoriesSection() {
                     <DropdownDelivery/>
                 </div>
             </div>
-            <div className="categories-slider">
-                <Category/>
-                <Category/>
-                <Category/>
-                <Category/>
+            <div className="categories-slider">        
+                {
+                    categories.map(Element=>(
+                        <CategoryItem item = {Element}/>
+                    ))
+                }
             </div>
             <div className="products-slider">
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
+                {
+                    products.map(Element=>(
+                        <ProductCard/>
+                    ))
+                }
             </div>
         </div>
     );
 }
-
